@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<ruleset name="MState">
+	<description>The M State coding standard (Adapted from Drupal/Pear).</description>
+	<exclude-pattern>*.js</exclude-pattern>
+	<exclude-pattern>*.css</exclude-pattern>
+	<exclude-pattern>*.xml</exclude-pattern>
+	<exclude-pattern>*\scripts\*</exclude-pattern>
+	<exclude-pattern>*/scripts/*</exclude-pattern>
+	<exclude-pattern>*\tests\*</exclude-pattern>
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	
+	<tabWidth>4</tabWidth>
+
+	<!--
+	NOTE:
+		Keep the sections in alphabetical order
+	 -->
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  ARRAYS -->
+	<!--  Use indexes cleanly: array[0] not: array[ 0] / array[0 ] -->
+	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  CLASSES -->
+
+	<!--  Enforce contained class matches filename -->
+	<rule ref="Squiz.Classes.ClassFileName"/>
+
+	<!--  Enforce no "ABSTRACT" class, or class Foo Extends B -->
+	<rule ref="Squiz.Classes.LowercaseClassKeywords"/>
+
+	<!--  Enforce usage of self:: (lowercase, no spaces aroud ::) -->
+	<rule ref="Squiz.Classes.SelfMemberReference"/>
+
+	<!--  Ensure class is named CamelCase -->
+	<rule ref="Squiz.Classes.ValidClassName"/>
+
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  COMMENTING -->
+
+	<!--  Give warnings for all TODO -->
+	<rule ref="Generic.Commenting.Todo"/>
+
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  CONTROL STRUCTURES -->
+
+	<!-- Warn on (($foo)?'':'') -->
+	<rule ref="Generic.ControlStructures.InlineControlStructure">
+		<properties>
+			<property name="type" value="warning"/>
+		</properties>
+	</rule>
+
+	<!--  Ensure spaces after brackets and brackets on same line of statement -->
+	<rule ref="Squiz.ControlStructures.ControlSignature"/>
+
+	<!--  Ensure foreach format: foreach ($foo as $b) -->
+	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
+
+	<!--  Ensure for format: for ($i=0; $i++; $i<=10) -->
+	<rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
+
+	<!--  Ensure control keywords are lowercase -->
+	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
+
+	<!--  Ensure tidy switch formatting (See Squiz sniff file*) -->
+	<rule ref="Squiz.ControlStructures.SwitchDeclaration"/>
+
+	<!--  Ensure tidy conditionals on multiple lines -->
+	<rule ref="PEAR.ControlStructures.MultiLineCondition"/>
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  FILES -->
+
+	<!--  Warn on 80 (default) - Fail on 140 char long -->
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="135" />
+			<property name="absoluteLineLimit" value="140" />
+		</properties>
+	</rule>
+
+	<!-- Checks that the include_once is used in conditional situations, and 
+	require_once is used elsewhere. Also checks that brackets do not surround the file being included. -->
+	<rule ref="PEAR.Files.IncludingFile"/>
+	
+	<!-- Ensure no newline after closing ?> -->
+	<rule ref="Generic.Files.EndFileNoNewline"/>
+	
+	
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  FORMATTING -->
+
+	<!--  No spaces after cast:  (int)$foo  - NOT: (int) $foo -->
+	<rule ref="Generic.Formatting.NoSpaceAfterCast"/>
+
+	<!--  Enforce arithmetic in parenthesis: $i = (10 + 10); -->
+	<rule ref="Squiz.Formatting.OperatorBracket"/>"
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  FUNCTIONS -->
+
+	<!--  Enforce spaces after commas -->
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+
+	<!--  No foo(&$var); -->
+	<rule ref="Generic.Functions.CallTimePassByReference"/>
+
+	<!--  Opening brace must be on new same line: function foo() { -->
+	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+
+	<!--  Enforce function declaration signature function foo() -->
+	<rule ref="Squiz.Functions.FunctionDeclaration"/>
+
+	<!--  Check that duplicate arguments are not in a function declaration: function a($a, $a) -->
+	<rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
+
+	<!--  Verify visibility modifiers are lowercase -->
+	<rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
+
+	<!--  Ensure function params with defaults come at end of signature -->
+	<rule ref="PEAR.Functions.ValidDefaultValue"/>
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  NAMING CONVENTIONS -->
+
+	<!--  Disallow PHP4 constructors -->
+	<rule ref="Generic.NamingConventions.ConstructorName"/>
+
+	<!-- Constants must be uppercase -->
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+	
+	<!-- Ensure CamelCaps functions -->
+	<rule ref="Generic.NamingConventions.CamelCapsFunctionName">	
+		<properties>
+			<property name="strict" value="false"/>
+		</properties>
+	</rule>
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  OPERATORS -->
+
+	<!--  Disallow use of 'AND' or 'OR' words in logic -->
+	<rule ref="Squiz.Operators.ValidLogicalOperators"/>
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  PHP -->
+
+	<!--  Ensure PHP constants are used in UPPERCASE -->
+	<rule ref="Generic.PHP.UpperCaseConstant"/>
+
+	<!--  Disallow deprecated functions -->
+	<rule ref="Generic.PHP.DeprecatedFunctions"/>
+
+	<!--  Disallow count()/etc loops -->
+	<rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
+
+	<!--  Warn on eval() usage -->
+	<rule ref="Squiz.PHP.Eval"/>
+
+	<!--  Ensure inbuilt PHP function calls are lowercase -->
+	<rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+
+	<!-- Ensure there is a closing ?> -->
+	<rule ref="Generic.PHP.ClosingPHPTag"/>
+	
+	<!-- Ensure there's nothing before a file's opening <? -->
+	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
+	
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  SCOPE -->
+
+	<!--  Enforce scope on all vars -->
+	<rule ref="Squiz.Scope.MemberVarScope"/>
+
+	<!--  Enforce scope on all methods -->
+	<rule ref="Squiz.Scope.MethodScope"/>
+
+	<!--  Alert when $this is used in static method -->
+	<rule ref="Squiz.Scope.StaticThisUsage"/>
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  STRINGS -->
+
+	<!-- None of this: $foo = "test"."test"; -->
+	<rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+
+	<!--**********************-->
+	<!--**********************-->
+	<!--**********************-->
+
+	<!--  Whitespace -->
+
+	<!-- this(); not this() ; -->
+	<rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+
+	<!--  include 'spaced'; not: echo'blah'; -->
+	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+
+	<!--  Enforce open/close bracket alignment -->
+	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
+
+	<!--  Single space after scope modifier -->
+	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
+
+	<!-- Disallow $foo -> func()  [spaces] -->
+	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing"/>
+
+	<!--  Spaces around operators -->
+	<rule ref="Squiz.WhiteSpace.OperatorSpacing"/>
+	
+	<!-- Disallow space indenting -->
+	<!-- <rule ref="Generic.WhiteSpace.DisallowSpaceIndent" /> -->
+	
+	
+
+</ruleset>

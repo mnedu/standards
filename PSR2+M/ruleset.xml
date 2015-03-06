@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ruleset name="PSR2+M">
+
+    <description>The M State modified/juiced up semi-PSR2-compliant standards!</description>
+    <!-- Bring in original M state standards -->
+    
+    <rule ref="MState">
+        <exclude name="Generic.PHP.ClosingPHPTag.NotFound" />
+        <exclude name="Generic.Files.EndFileNoNewline.Found" />
+    </rule>
+    
+    <!-- Require NO closing tag -->
+    <rule ref="Zend.Files.ClosingTag"/>
+    
+    <!-- Unix newlines -->
+	<rule ref="Generic.Files.LineEndings" />
+    
+    <!-- no $a = b; $b = c; on same line -->
+    <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+    
+    <!-- no short tag due to php5.5 php.ini default turning off by default -->
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+    
+    <!-- Force no tabs -->
+    <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+    
+    <!-- Additional "Don't be stupid" checks -->
+    <!-- http://edorian.github.io/php-coding-standard-generator/#phpcs -->
+
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+
+
+</ruleset>
