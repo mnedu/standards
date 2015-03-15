@@ -3,7 +3,7 @@
     "type": "library",
     "description": "M State PHPCS standards",
     
-    "license": "proprietary",
+    "license": "GPLv2",
     
     "authors": [{
         "name": "M State Web Services"
@@ -11,8 +11,7 @@
     
     "require": {
         "php": ">=5.5.0",
-		"squizlabs/php_codesniffer": "~1.5"
+        "squizlabs/php_codesniffer": "~1.5"
     },
-	
-	"bin": ["bin/m-phpcs"]
+    "bin": ["bin/m-phpcs"]
 }
